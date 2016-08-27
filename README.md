@@ -1,7 +1,6 @@
 # `AndroidTagGroup`
 
-[![Release 1.4](https://img.shields.io/badge/Release-1.4.1-green.svg)](https://github.com/2dxgujun/AndroidTagGroup/releases)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/me.gujun.android.taggroup/library/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/me.gujun.android.taggroup/library)
+[![Release](https://jitpack.io/v/KizitoNwose/AndroidTagGroup.svg)](https://jitpack.io/#KizitoNwose/AndroidTagGroup)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-AndroidTagGroup-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/1539)
 [![Build Status](https://travis-ci.org/2dxgujun/AndroidTagGroup.png?branch=master)](https://travis-ci.org/2dxgujun/AndroidTagGroup)
 
@@ -25,19 +24,37 @@ Also you can contribute new idea to me.
 ## Step 1
 
 #### Gradle
-```groovy
+
+  -  Add the following to your project level `build.gradle`:
+
+```gradle
+allprojects {
+	repositories {
+		maven { url "https://jitpack.io" }
+	}
+}
+```
+  -  Add this to your app `build.gradle`:
+
+```gradle
 dependencies {
-   compile 'me.gujun.android.taggroup:library:1.4@aar'
+	compile 'com.github.KizitoNwose:AndroidTagGroup:1.6.0'
 }
 ```
 
 #### Maven
+
+- Add the following to your `pom.xml`:
 ```xml
+<repository>
+       	<id>jitpack.io</id>
+	    <url>https://jitpack.io</url>
+</repository>
+
 <dependency>
-    <groupId>me.gujun.android.taggroup</groupId>
-    <artifactId>library</artifactId>
-    <version>1.4</version>
-    <type>apklib</type>
+	    <groupId>com.github.KizitoNwose</groupId>
+	    <artifactId>AndroidTagGroup</artifactId>
+	    <version>1.6.0</version>
 </dependency>
 ```
 
@@ -60,7 +77,9 @@ Use `setTags(...)` to set the initial tags in the group.
 
 To "submit" a new tag as user press "Enter" or tap the blank area of the tag group, also you can "submit" a new tag via `submitTag()`.
 
-**Note**: Google keyboard (a few soft keyboard not honour the key event) currently not supported "Enter" key to "submit" a new tag.
+**This issues has been fixed in v1.6.0**
+
+~~**Note**: Google keyboard (a few soft keyboard not honour the key event) currently not supported "Enter" key to "submit" a new tag.~~
 
 #### How to delete a tag?
 
@@ -69,6 +88,12 @@ To delete a tag as user press "Backspace" key or double-tap the tag which you wa
 #### How to detect tag click event?
 
 Implement a callback interface: `TagGroup.OnTagClickListener`, and set the listener via `setOnTagClickListener()`.
+
+#### Important changes in v1.6.0
+
+- `void onAppend()` in `onTagChangedListener` is now `boolean onAppend()` This is useful if you want to check if a new tag is valid before adding to the list of tags. For instance, in a TagGroup of links, you may want to ensure that new tags are valid links, this is the right place do so. If you are not interested in validating your tags, you can just return `true`.
+
+- Fixed issue where tag is not submitted with enter key on some keyboards.
 
 
 # Build
@@ -88,7 +113,7 @@ There are several attributes you can set:
 |           attr        	|     default      |                         mean                          	 |
 |:------------------------- |:---------------- |:------------------------------------------------------- |
 | atg_isAppendMode      	| false            | Determine the TagGroup mode, APPEND or single DISPLAY.  |
-| atg_inputHint   	        | Add Tag/添加标签  | The hint of the INPUT tag.                              |
+| atg_inputHint   	        | Add Tag/????  | The hint of the INPUT tag.                              |
 | atg_borderColor	        | #49C120          | The tag outline border color.                           |
 | atg_textColor          	| #49C120          | The tag text color.                           	         |
 | atg_backgroundColor       | #FFFFFF          | The tag background color.                               |

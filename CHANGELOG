@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+Version 1.6 *(2016-08-27)*
+----------------------------
+
+-Fixed issue where tag is not submitted with enter key on some keyboards.
+-Changed void onAppend() in onTagChangedListener to boolean onAppend().
+
 Version 1.4 *(2015-05-23)*
 ----------------------------
 
