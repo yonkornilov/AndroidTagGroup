@@ -38,7 +38,7 @@ allprojects {
 
 ```gradle
 dependencies {
-	compile 'com.github.KizitoNwose:AndroidTagGroup:1.6.0'
+	compile 'com.github.KizitoNwose:AndroidTagGroup:-SNAPSHOT'
 }
 ```
 
@@ -54,7 +54,7 @@ dependencies {
 <dependency>
 	    <groupId>com.github.KizitoNwose</groupId>
 	    <artifactId>AndroidTagGroup</artifactId>
-	    <version>1.6.0</version>
+	    <version>-SNAPSHOT</version>
 </dependency>
 ```
 
